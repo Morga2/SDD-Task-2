@@ -19,6 +19,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="../scripts/createSequence.js"></script>
 </head>
 
 <body>
@@ -31,15 +32,15 @@
                 <div class="row">
                     <div class="col px-md-5 text-center">
                         <h5>Current Class</h5>
-                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" value="ClassNo" readonly>
+                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" id="ClassNo" value="ClassNo" readonly>
                     </div>
                     <div class="col px-md-5 text-center">
                         <h5>Sequence Time</h5>
-                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" value="SequenceTime" readonly>
+                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" id="SeqTime" value="SequenceTime" readonly>
                     </div>
                     <div class="col px-md-5 text-center">
                         <h5>Race Number</h5>
-                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" value="RaceNo" readonly>
+                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" id="RaceNo" value="RaceNo" readonly>
                     </div>
                 </div>
             </div>
@@ -64,8 +65,9 @@
                 <div class="row my-4 text-center">
                     <div class="col my-4 text-center">
                         <div>
-                            <button type="button" class="btn btn-success">OCS</button>
-                            <button type="button" class="btn btn-warning">General</button>
+                            <button type="button" class="btn btn primary" id="settingsOpen">Settings</button>
+                            <button type="button" class="btn btn-warning">OCS</button>
+                            <button type="button" class="btn btn-danger">General</button>
                         </div>
                     </div>
                 </div>
@@ -94,6 +96,58 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row bg-light justify-content-center mt-3 h-30 d-none" id="settings">
+            <button id="settingsClose" type=" button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <form>
+                <div class="form-group row">
+                    <label class="col-md-6 col-form-label" for="settingsRaceNo">Race
+                        Number:</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="settingsRaceNo" placeholder="Enter Race No.">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-6 col-form-label" for="settingsRaceClass">Race
+                        Class:</label>
+                    <div class="col-md-6">
+                        <select class="form-control" id="settingsRaceClass">
+                            <option selected>Select Class..</option>
+                            <option>1 - Optimist Green</option>
+                            <option>2 - Optimist Open</option>
+                            <option>3 - Laser 4.7</option>
+                            <option>4 - Laser Radial</option>
+                            <option>5 - Laser Full</option>
+                            <option>6 - Spiral / Finn</option>
+                            <option>7 - 29er</option>
+                            <option>8 - NS</option>
+                            <option>9 - Open</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-6 col-form-label" for="settingsRaceTime">Race
+                        Timings:</label>
+                    <div class="col-md-6">
+                        <select class="form-control" id="settingsRaceTime">
+                            <option selected>Select Sequence Time..</option>
+                            <option>1 mins</option>
+                            <option>3 mins</option>
+                            <option>5 mins</option>
+                            <option>10 mins</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group-row">
+                    <div class="col-md-12 offset-md-6">
+                        <button id="createSequence" type="button" class="btn btn-primary">
+                            Create Sequence
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>
