@@ -1,4 +1,5 @@
-// Countdown Timer REFERENCE: https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
+// Countdown Timer 
+// REFERENCE: https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
 
 
 function CountDownTimer(duration, granularity) {
@@ -52,10 +53,3 @@ CountDownTimer.parse = function (seconds) {
     };
 };
 
-function formatDisplay(display) {
-    return function (minutes, seconds) {
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        display.text(minutes + ':' + seconds);
-    }
-}

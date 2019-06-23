@@ -1,8 +1,8 @@
-// Javascript for the Individual and Rolling Start controls 
+// Javascript for the Sequence Countdown Controls 
 
 $(document).ready(function () {
     
-    //Open / Close Settings
+    // Open / Close Settings Button
     $('#settingsOpen').on('click', function () {
         $('#settings').removeClass('d-none');
     })
@@ -39,8 +39,19 @@ $(document).ready(function () {
         recall($(this))
     });
 
+    // Start Button
     $('#Start').on('click', function () {
-        startSequence(3)
+        // Pass length of start sequence in seconds i.e. 180 = 3 min start
+        startSequence(180)
     });
 
+    // Stop Button
+    $('#Stop').on('click', function () {
+        // Do Something
+    });
+    
+    // Reset Button
+    $('#Reset').on('click', function () {
+        // Do Something
+    });
 })
