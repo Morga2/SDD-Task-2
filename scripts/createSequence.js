@@ -30,4 +30,17 @@ $(document).ready(function () {
 
     })
 
+    // Recall Buttons
+    $('#OCS').on('click', function () {
+        recall($(this))
+    });
+
+    $('#General').on('click', function () {
+        recall($(this))
+    });
+
+    $('#Start').on('click', function () {
+        startSequence(3)
+    });
+
 })
