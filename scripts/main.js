@@ -59,14 +59,24 @@ $(document).ready(function () {
     // Start Button
     $('#Start').on('click', function () {
 
-        // Make sure settings are setand if they are get them
+        // remove any flags that might be up
+
+        $('#classFlag img').remove();
+        $('#signalFlag img').remove();
+        $('#nextFlag img').remove();
+        $('#arrow i').remove();
+        
+
+        // Make sure settings are set and if they are get them
 
         if ($('#settingsRaceTime :selected').val() == "" || $('#settingsRaceTime :selected').val() == "" || $('#settingsSignalFlag :selected').val() == ""){
             $('#startAlert').addClass("show")
             $('#startAlert').alert()
         } else {
+            
+            // Change text value of Race Time to integer and multiply by 60 to get seconds for the timer
             var sequenceTime = 60 * parseInt(($('#settingsRaceTime :selected').text()).substring(0, 2));
-            console.log("Sequence Time: " + sequenceTime)
+            // console.log("Sequence Time: " + sequenceTime)
 
             // Pass length of start sequence in seconds i.e. 180 = 3 min start
             startSequence(sequenceTime)
@@ -76,7 +86,9 @@ $(document).ready(function () {
 
     // Stop Button
     $('#Stop').on('click', function () {
-        // Do Something
+
+        abandon();
+
     });
     
     // Reset Button

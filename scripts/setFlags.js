@@ -1,6 +1,6 @@
 // Raises Flags
 
-function setFlags(sequence, classFlagName, signalFlagName) {
+function setFlags(sequence) {
     return function (minutes, seconds) {
         if (sequence == "firstMin") {
             if ((minutes == 1) && (seconds == 0)) {
@@ -47,8 +47,7 @@ function checkSignalFlag() {
             return "Signal_Flag_U_small.png";
         }
         case "Black Flag": {
-            return "Signal_Flag_P_small.png";
+            return "Signal_Flag_Black_small.png";
         }
     }
-    return "Signal_Flag_P_small.png"
 }

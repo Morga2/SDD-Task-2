@@ -39,11 +39,11 @@ function startSequence(startInterval) {
         // Start timer for First Minute of Sequence
         flagTimerFirstMin = new CountDownTimer(60)
         // Every second - update the next flag clock, check if timer finished, check if horn need playing, check if flags need setting    
-        flagTimerFirstMin.onTick(setClock(nextTime)).onTick(checkFinish).onTick(playHorn()).onTick(setFlags("firstMin", checkClassFlag(), checkSignalFlag())).start();
+        flagTimerFirstMin.onTick(setClock(nextTime)).onTick(checkFinish).onTick(playHorn()).onTick(setFlags("firstMin")).start();
 
         function checkFinish() {
             if (this.expired()) {
-                setTimeout(resolve(), 1000);
+                setTimeout(resolve(), 500);
             }
         }
     }).then(function () {
@@ -56,7 +56,7 @@ function startSequence(startInterval) {
 
         function checkFinish() {
             if (this.expired()) {
-                setTimeout(resolve(), 1000);
+                setTimeout(resolve(), 500);
             }
         }
     });
@@ -64,7 +64,7 @@ function startSequence(startInterval) {
         // Start timer for the last minute
         flagTimerLastMin = new CountDownTimer(60)
         // Every second - update the next flag clock, check if timer finished, check if horn need playing, check if flags need setting
-        flagTimerLastMin.onTick(setClock(nextTime)).onTick(playHorn()).onTick(setFlags("lastMin", checkClassFlag(), checkSignalFlag())).start();
+        flagTimerLastMin.onTick(setClock(nextTime)).onTick(playHorn()).onTick(setFlags("lastMin")).start();
     });
 
 
