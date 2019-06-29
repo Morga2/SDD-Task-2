@@ -8,14 +8,17 @@ function startSequence(startInterval) {
 
     // Set Time to Flag timings (note timings in seconds)
     switch (startInterval) {
+        // 3 min sequence
         case 180: {
             flagInterval = 60;
             break;
         }
+        // 5 min sequence
         case 300: {
             flagInterval = 180;
             break;
         }
+        // 10 min sequence
         case 600: {
             flagInterval = 420;
             break;
@@ -25,6 +28,7 @@ function startSequence(startInterval) {
         }
     }
 
+    // Create a countdown timer for the overall sequence
     raceTimer = new CountDownTimer(startInterval)
     // Update the overall race start clock every second
     raceTimer.onTick(setClock(totalTime)).start();

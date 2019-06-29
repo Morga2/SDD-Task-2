@@ -46,6 +46,10 @@ CountDownTimer.prototype.expired = function () {
     return !this.running;
 };
 
+CountDownTimer.prototype.stop = function () {
+      
+};
+
 CountDownTimer.parse = function (seconds) {
     return {
         'minutes': (seconds / 60) | 0,

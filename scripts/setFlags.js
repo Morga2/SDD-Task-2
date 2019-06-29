@@ -30,9 +30,25 @@ function setFlags(sequence, classFlagName, signalFlagName) {
 };
 
 function checkClassFlag() {
-    return "Signal_Flag_1_small.png"
+    // Get the class information
+    var raceClass = $('#settingsRaceClass').val();
+    var flagNo = raceClass.substring(0, 1);
+    return "Signal_Flag_" + flagNo + "_small.png";
 }
 
 function checkSignalFlag() {
+    // Get the signal flag
+    var signalFlag = $('#settingsSignalFlag').val();
+    switch (signalFlag) {
+        case "P Flag": {
+            return "Signal_Flag_P_small.png";
+        }
+        case "U Flag": {
+            return "Signal_Flag_U_small.png";
+        }
+        case "Black Flag": {
+            return "Signal_Flag_P_small.png";
+        }
+    }
     return "Signal_Flag_P_small.png"
 }

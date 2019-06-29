@@ -12,21 +12,38 @@ $(document).ready(function () {
     });
         
     
-    // Create Sequence Button
+    // Create Sequence Form 
     $('#createSequence').on('click', function () {
-        var raceNo = $('#settingsRaceNo').val();
-        var raceClass = $('#settingsRaceClass :selected').text();
-        var raceTime = $('#settingsRaceTime :selected').text();
 
-        console.log("RaceNo: " + raceNo + " RaceClass: " + raceClass + " RaceTime: " + raceTime)
-        
-        $('#RaceNo').val(raceNo)
-        $('#ClassNo').val(raceClass)
-        $('#SeqTime').val(raceTime)
+        // check to see if settings filled in
+        // REFERENCE: https://getbootstrap.com/docs/4.3/components/forms/#how-it-works
 
-        console.log("RaceNo: " + raceNo + " RaceClass: " + raceClass + " RaceTime: " + raceTime)
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('click', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    console.log("here")
+                } else
+                {
+                    // Get the values from the settings
 
-        $('#settings').addClass('d-none');
+                    var raceNo = $('#settingsRaceNo').val();
+                    var raceClass = $('#settingsRaceClass :selected').text();
+                    var raceTime = $('#settingsRaceTime :selected').text();
+
+                    // Add the settings to the main screen
+
+                    $('#RaceNo').val(raceNo)
+                    $('#ClassNo').val(raceClass)
+                    $('#SeqTime').val(raceTime)
+
+                    $('#settings').addClass('d-none')
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
 
     })
 
@@ -41,8 +58,20 @@ $(document).ready(function () {
 
     // Start Button
     $('#Start').on('click', function () {
-        // Pass length of start sequence in seconds i.e. 180 = 3 min start
-        startSequence(180)
+
+        // Make sure settings are setand if they are get them
+
+        if ($('#settingsRaceTime :selected').val() == "" || $('#settingsRaceTime :selected').val() == "" || $('#settingsSignalFlag :selected').val() == ""){
+            $('#startAlert').addClass("show")
+            $('#startAlert').alert()
+        } else {
+            var sequenceTime = 60 * parseInt(($('#settingsRaceTime :selected').text()).substring(0, 2));
+            console.log("Sequence Time: " + sequenceTime)
+
+            // Pass length of start sequence in seconds i.e. 180 = 3 min start
+            startSequence(sequenceTime)
+        }
+        
     });
 
     // Stop Button
@@ -54,4 +83,7 @@ $(document).ready(function () {
     $('#Reset').on('click', function () {
         // Do Something
     });
+
+    
+
 })

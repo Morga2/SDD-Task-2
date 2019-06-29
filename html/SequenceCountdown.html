@@ -31,15 +31,15 @@
                 <div class="row my-4">
                     <div class="col px-md-5 text-center">
                         <h5>Current Class</h5>
-                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" id="ClassNo" value="ClassNo" readonly>
+                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" id="ClassNo" value="< Not Set >" readonly>
                     </div>
                     <div class="col px-md-5 text-center">
                         <h5>Sequence Time</h5>
-                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" id="SeqTime" value="SequenceTime" readonly>
+                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" id="SeqTime" value="< Not Set >" readonly>
                     </div>
                     <div class="col px-md-5 text-center">
                         <h5>Race Number</h5>
-                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" id="RaceNo" value="RaceNo" readonly>
+                        <input type="text" class="form-control mb-2 text-center bg-primary text-white" id="RaceNo" value="< Not Set >" readonly>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                 <div class="row my-4 text-center">
                     <div class="col">
                         <h5>Time to Next Flag</h5>
-                        <div class="h1"><span id="nextTime"></span></div>
+                        <div class="h1"><span id="nextTime">00:00</span></div>
                     </div>
                 </div>
                 <div class="row my-4 text-center">
@@ -70,7 +70,7 @@
                 <div class="row my-4 text-center">
                     <div class="col">
                         <h5>Time to Start</h5>
-                        <div class="h1"><span id="totalTime"></span></div>
+                        <div class="h1"><span id="totalTime">00:00</span></div>
                     </div>
                 </div>
                 <div class="row my-4 text-center">   
@@ -102,62 +102,99 @@
                 <button type="button" id="Reset" class="btn btn-primary">Reset</button>
             </div>
         </div>
+        <div class="row">
+            <div class="col my-4 text-center">
+                <div id="startAlert" class="alert alert-warning alert-dismissible fade " role="alert">
+                    <strong>Unable to start</strong> - Select the Settings button to enter the sequence information first.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>  
+        </div>
         <div class="row bg-light justify-content-center mt-3 h-30 d-none" id="settings">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12">
-                        <button id="settingsClose" type=" button" class="close" aria-label="Close">
+                    <div class="col-8">
+                        <h3>Sequence Settings</h3>
+                    </div>
+                    <div class="col-4">    
+                        <button id="settingsClose" type="button" class="close" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>    
                 </div>
-                <div class="row ">    
-                    <div class="col">
-                        <label class="col-form-label" for="settingsRaceNo">Race
-                            Number:</label>
-                        <div class="">
-                            <input type="text" class="form-control" id="settingsRaceNo" placeholder="Enter Race No.">
+                <form id="settingsForm" class="needs-validation" novalidate>
+                    <div class="row">    
+                        <div class="col">
+                            <label class="col-form-label" for="settingsRaceNo">Race
+                                Number:</label>
+                            <div class="">
+                                <input type="text" class="form-control" id="settingsRaceNo" placeholder="Enter Race No." value="" required>
+                                <div class="invalid-feedback">
+                                    Please enter a race number
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="col-form-label" for="settingsRaceClass">Race
+                                Class:</label>
+                            <div class="">
+                                <select required class="form-control" id="settingsRaceClass">
+                                    <option selected value="">Select Class..</option>
+                                    <option>1 - Optimist Green</option>
+                                    <option>2 - Optimist Open</option>
+                                    <option>3 - Laser 4.7</option>
+                                    <option>4 - Laser Radial</option>
+                                    <option>5 - Laser Full</option>
+                                    <option>6 - Spiral / Finn</option>
+                                    <option>7 - 29er</option>
+                                    <option>8 - NS</option>
+                                    <option>9 - Open</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please choose a class
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="col-form-label" for="settingsRaceTime">Race
+                                Timings:</label>
+                            <div class="">
+                                <select required class="custom-select" id="settingsRaceTime">
+                                    <option selected value="">Select Sequence Time..</option>
+                                    <option>3 mins</option>
+                                    <option>5 mins</option>
+                                    <option>10 mins</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please choose a sequence time
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="row my-4 py-4">
+                        <div class="col-4">
+                            <label class="col-form-label" for="settingsSignalFlag">Signal Flag:</label>
+                            <div class="">
+                                <select required class="custom-select" id="settingsSignalFlag">
+                                    <option disabled selected value="">Select Signal Flag..</option>
+                                    <option>P Flag</option>
+                                    <option>U Flag</option>
+                                    <option>Black Flag</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please choose a signal flag
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8 align-self-end">
+                            <button id="createSequence" type="button" class="btn btn-primary float-right">
+                                Create Sequence
+                            </button>
                         </div>
                     </div>
-                    <div class="col">
-                        <label class="col-form-label" for="settingsRaceClass">Race
-                            Class:</label>
-                        <div class="">
-                            <select class="form-control" id="settingsRaceClass">
-                                <option selected>Select Class..</option>
-                                <option>1 - Optimist Green</option>
-                                <option>2 - Optimist Open</option>
-                                <option>3 - Laser 4.7</option>
-                                <option>4 - Laser Radial</option>
-                                <option>5 - Laser Full</option>
-                                <option>6 - Spiral / Finn</option>
-                                <option>7 - 29er</option>
-                                <option>8 - NS</option>
-                                <option>9 - Open</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label class="col-form-label" for="settingsRaceTime">Race
-                            Timings:</label>
-                        <div class="">
-                            <select class="form-control" id="settingsRaceTime">
-                                <option selected>Select Sequence Time..</option>
-                                <option>1 mins</option>
-                                <option>3 mins</option>
-                                <option>5 mins</option>
-                                <option>10 mins</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row my-4 py-4">
-                    <div class="col">
-                        <button id="createSequence" type="button" class="btn btn-primary float-right">
-                            Create Sequence
-                        </button>
-                    </div>
-                </div>
+                </form>
             </div>    
         </div>
     </div>
