@@ -1,4 +1,4 @@
-// Javascript for the Sequence Countdown Controls 
+// This function runs actions (other functions) when buttons on the Sequence Countdown page are pushed 
 
 $(document).ready(function () {
     
@@ -13,10 +13,10 @@ $(document).ready(function () {
     });
         
     
-    // Create Sequence Form 
+    // Create Sequence Button 
     $('#createSequence').on('click', function () {
 
-        // check to see if settings filled in
+        // check to see if settings filled in and change color of fields when not filled in
         // REFERENCE: https://getbootstrap.com/docs/4.3/components/forms/#how-it-works
 
         var forms = document.getElementsByClassName('needs-validation');
@@ -89,7 +89,7 @@ $(document).ready(function () {
         
     });
 
-    // Stop Button
+    // Stop (abandon) Button
     $('#Stop').on('click', function () {
         abandon();
     });

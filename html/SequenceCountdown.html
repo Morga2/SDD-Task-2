@@ -9,7 +9,6 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/main.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -23,15 +22,15 @@
 
 <body>
     <div class="container">
+        <!-- Top border -->
         <nav class="navbar navbar-dark bg-dark">
             <a href="../index.html"><i class="fas fa-history text-light fa-2x"></i></a>
             <span class="navbar-brand mb-0 h1">Sequence Master</span>
         </nav>
+        <!-- Title row and race details -->
         <div class="row my-4">
             <div class="col-12 text-center">
-                <div>
-                    <h1>Sequence Countdown</h1>
-                </div>
+                <h1>Sequence Countdown</h1>
                 <div class="row my-4">
                     <div class="col px-md-5 text-center">
                         <h5>Current Class</h5>
@@ -48,7 +47,9 @@
                 </div>
             </div>
         </div>
+        <!-- Timers, speaker icon and flags -->
         <div class="row">
+            <!-- Timers and speaker icon -->
             <div class="col-4">
                 <div class="row my-4 text-center">
                     <div class="col">
@@ -70,11 +71,15 @@
                     </div>
                 </div>
             </div>
+            <!-- Flags -->
             <div class="col-8">
                 <div class="row my-4 text-center">
                     <div class="col">
                         <h5>Time to Start</h5>
                         <div class="h1"><span id="totalTime">00:00</span></div>
+                    </div>
+                    <div class="col">
+                        <i id="hornPic" class="fas fa-bullhorn fa-4x d-none"></i>
                     </div>
                 </div>
                 <div class="row my-4 text-center">   
@@ -91,6 +96,7 @@
                 </div>
             </div>
         </div>
+        <!-- Control buttons -->
         <div class="row my-4 text-center">
             <div class="col-4 my-4 text-center">
                 <div>
@@ -108,6 +114,7 @@
                 <button type="button" id="Stop" class="btn btn-danger">Abandon</button>
             </div>
         </div>
+        <!-- Settings panel -->
         <div class="row bg-light justify-content-center mt-3 h-30 d-none" id="settings">
             <div class="col-12">
                 <div class="row">
@@ -193,6 +200,7 @@
                 </form>
             </div>    
         </div>
+        <!-- Bottom border -->
         <nav class="navbar navbar-dark bg-dark text-right">
             <a class="navbar-nav mb-0 text-light" href="Directions.html">Instructions</a>
         </nav>

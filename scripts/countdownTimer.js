@@ -1,4 +1,5 @@
-// Countdown Timer 
+// This function count the time. It is called from the StartSequence.js which tells it how long the timer should run for
+// It also runs the functions sent to it every second 
 // REFERENCE: https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
 
 

@@ -1,3 +1,6 @@
+// This function stops the countdown and raises the AP flag
+// this funtion is called from main.js when the Abandon button is pushed
+
 function abandon() {
     
     // switch off timers
