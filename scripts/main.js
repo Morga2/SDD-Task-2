@@ -5,6 +5,7 @@ $(document).ready(function () {
     // Open / Close Settings Button
     $('#settingsOpen').on('click', function () {
         $('#settings').removeClass('d-none');
+        $('#settingsOpen').popover('hide')
     })
 
     $('#settingsClose').on('click', function () {
@@ -40,6 +41,8 @@ $(document).ready(function () {
                     $('#SeqTime').val(raceTime)
 
                     $('#settings').addClass('d-none')
+
+                    $('#Start').popover('show')
                 }
                 form.classList.add('was-validated');
             }, false);
@@ -59,6 +62,9 @@ $(document).ready(function () {
     // Start Button
     $('#Start').on('click', function () {
 
+        // Hide the popover
+        $('#Start').popover('hide');
+
         // remove any flags that might be up
 
         $('#classFlag img').remove();
@@ -70,8 +76,7 @@ $(document).ready(function () {
         // Make sure settings are set and if they are get them
 
         if ($('#settingsRaceTime :selected').val() == "" || $('#settingsRaceTime :selected').val() == "" || $('#settingsSignalFlag :selected').val() == ""){
-            $('#startAlert').addClass("show")
-            $('#startAlert').alert()
+            $('#settingsOpen').popover('show')
         } else {
             
             // Change text value of Race Time to integer and multiply by 60 to get seconds for the timer
@@ -86,16 +91,7 @@ $(document).ready(function () {
 
     // Stop Button
     $('#Stop').on('click', function () {
-
         abandon();
-
     });
-    
-    // Reset Button
-    $('#Reset').on('click', function () {
-        // Do Something
-    });
-
-    
 
 })

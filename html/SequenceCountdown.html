@@ -23,6 +23,10 @@
 
 <body>
     <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <a href="../index.html"><i class="fas fa-history text-light fa-2x"></i></a>
+            <span class="navbar-brand mb-0 h1">Sequence Master</span>
+        </nav>
         <div class="row my-4">
             <div class="col-12 text-center">
                 <div>
@@ -90,26 +94,19 @@
         <div class="row my-4 text-center">
             <div class="col-4 my-4 text-center">
                 <div>
-                    <button type="button" class="btn btn-primary"
-                        id="settingsOpen">Settings</button>
+                    <button type="button" class="btn btn-primary" id="settingsOpen" data-trigger="focus" data-toggle="popover" data-placement="top" title="Add Race Settings"
+                        data-content="You need to add the race details before starting the race">Settings</button>
                     <button type="button" id="OCS" class="btn btn-warning">OCS</button>
                     <button type="button" id="General" class="btn btn-danger">General</button>
                 </div>
             </div>
             <div class="col-8 my-4 text-center">
-                <button type="button" id="Start" class="btn btn-success">Start</button>
+                <button type="button" class="btn btn-primary" id="Start"
+                    data-trigger="focus" data-toggle="popover" data-placement="top"
+                    title="Ready to go"
+                    data-content="You can now start the race">Start</button>
                 <button type="button" id="Stop" class="btn btn-danger">Abandon</button>
             </div>
-        </div>
-        <div class="row">
-            <div class="col my-4 text-center">
-                <div id="startAlert" class="alert alert-warning alert-dismissible fade " role="alert">
-                    <strong>Unable to start</strong> - Select the Settings button to enter the sequence information first.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>  
         </div>
         <div class="row bg-light justify-content-center mt-3 h-30 d-none" id="settings">
             <div class="col-12">
@@ -196,6 +193,9 @@
                 </form>
             </div>    
         </div>
+        <nav class="navbar navbar-dark bg-dark text-right">
+            <a class="navbar-nav mb-0 text-light" href="Directions.html">Instructions</a>
+        </nav>
     </div>
 
     <!-- Load Scripts -->
